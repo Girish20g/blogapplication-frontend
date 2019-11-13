@@ -1,0 +1,44 @@
+<div style="height: 100vh;">
+  <div class="container">
+    <!--routerLink="/home"-->
+    <a  class="text-decoration-none text-dark">
+        <h1 class="pt-5 text-center text-danger font-weight-bolder font-italic"><img class="iconstyle rounded-circle" src="https://us.123rf.com/450wm/alluranet/alluranet1705/alluranet170501518/77775295-stock-vector-star-swoosh-letter-b.jpg?ver=6">bloGGing</h1>
+    </a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><b>Sign In</b></h5>
+            <div class="container justify-content-center text-danger mx-auto" *ngIf="invalid">
+              <span>Please Enter Correct Details!!</span>
+            </div>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <label for="inputUsername" ><b>USERNAME-:</b></label>
+                <input type="text" id="inputUsername" [(ngModel)]="username"  name="usern" class="form-control " placeholder="Username" required autofocus>
+              </div>
+              <div class="form-label-group">
+                <label for="inputPassword"><b>Password-:</b></label>
+                <input type="password" id="inputPassword" [(ngModel)]="password"  name="pwd" class="form-control" placeholder="Password" required>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="checkLogin()" type="submit">Sign in</button>
+            </form>
+            <div class="text-right mt-3">
+              New to  blloGGing?
+              <a routerLink="/sign_up" class="font-weight-bold">
+                <button class="btn-primary subtn">Sign-Up</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

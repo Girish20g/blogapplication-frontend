@@ -1,0 +1,56 @@
+<div class="bg-dark">
+  <div class="container">
+    <div class = "row">
+      <div class = "col-2dot4 ptr" (click)="ngOnInit()"><a class="nav-link text-white"><h6>HOME</h6></a></div>
+      <div class = "col-sm-2dot4 ptr" (click)="getWithCategory('FOOD')" ><a class="nav-link text-white" ><h6>FOOD</h6></a></div>
+      <div class = "col-md-2dot4 ptr" (click)="getWithCategory('TRAVEL')"><a class="nav-link text-white" ><h6>TRAVEL</h6></a></div>
+      <div class = "col-lg-2dot4 ptr" (click)="getWithCategory('LIFESTYLE')" ><a class="nav-link text-white"><h6>LIFESTYLE</h6></a></div>
+      <div class = "col-xl-2dot4 ptr" (click)="getWithCategory('SPORTS')"><a class="nav-link text-white" ><h6>SPORTS</h6></a></div>
+    </div>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg navcolor">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <form class="form-inline mr-auto">
+      <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      <div class="mx-2 search"><button class="btn text-white" type="submit">Search</button></div>
+    </form>
+
+  </div>
+  <a class="navbar-brand profile" routerLink="/myprofile"><i class="material-icons" style="font-size: 40px;color: red" >person_pin</i>
+    <span style="vertical-align: top;color: red">My Profile</span></a>
+
+</nav>
+<section *ngIf="c==null" style=" background : url(./assets/images/hero.jpg); background-size: cover; background-position: center center" class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <h3 class="text-white">Blogging is just writing — writing using a particularly efficient type of publishing technology.</h3><a class="hero-link mb-5">#Simon Dumenco</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="no-padding-top">
+  <div class="container bg-gray mt-2"  *ngFor="let b of blogss">
+    <div class="row d-flex align-items-stretch">
+      <div class="text col-lg-7">
+        <div class="text-inner d-flex align-items-center">
+          <div class="content">
+            <header class="post-header">
+              <h2 class="h4">{{b.title}}</h2>
+            </header>
+            <p [innerHTML]="b.content"></p>
+            <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
+              <div class="avatar"><img src="./assets/images/avatar-1.jpg" alt="..sxn." class="img-fluid"></div>
+              <div><span>{{b.user.username}}</span></div></a>
+              &nbsp;<div><i class="material-icons">access_time</i><span style="vertical-align: top">{{b.createdOn | date}}</span></div>
+              &nbsp;<div><i class="material-icons">mode_comment</i>12</div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class=" col-lg-5"><img class="sizeimg" src="{{b.imgsrc}}" alt="..."></div>
+    </div>
+  </div>
+</section>

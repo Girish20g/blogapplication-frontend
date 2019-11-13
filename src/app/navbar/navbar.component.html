@@ -1,0 +1,20 @@
+<div class="header">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1><a href="" class="title"><img width="48rem" height="48rem" class="rounded-circle" src="https://us.123rf.com/450wm/alluranet/alluranet1705/alluranet170501518/77775295-stock-vector-star-swoosh-letter-b.jpg?ver=6">  bloGGing</a></h1>
+      </div> <!-- Title -->
+      <div class="col-md-3">
+        <button (click)="logout()" class="logout btn btn-default" ><i class="material-icons">exit_to_app</i><span style="vertical-align: top">Logout</span></button>
+        <a routerLink="/addpost" class="new-post mr-3"><i class="material-icons">
+          note_add
+        </i><span style="vertical-align: top">Add Post</span></a>
+      </div>
+      <div class="col-sm-3">
+        <a *ngIf="!appservice.checkLogin()" class="login btn btn-default"><i class="material-icons">person</i><span style="vertical-align: top">SignIn</span></a>
+        <a *ngIf="!appservice.checkLogin()" class="register btn btn-default"><i class="material-icons">person_outline</i><span style="vertical-align: top">Register</span></a>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div style="height: 100vh">
+  <div class="container">
+    <!-- routerLink="/home"-->
+    <a class="text-decoration-none text-dark">
+        <h1 class="pt-5 text-center text-danger
+         font-weight-bolder font-italic"><img class="iconstyle rounded-circle" src="https://us.123rf.com/450wm/alluranet/alluranet1705/alluranet170501518/77775295-stock-vector-star-swoosh-letter-b.jpg?ver=6">bloGGing</h1>
+    </a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signup my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center"><b>Sign Up</b></h5>
+            <form class="form-signup">
+
+              <div class="form-label-group">
+                <label for="inputUsername"><b>Username-:</b></label>
+                <input type="text" id="inputUsername" [(ngModel)]="username" name="usern"  class="form-control" placeholder="Username" required="true">
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputEmail"><b>Email address-:</b></label>
+                <input type="email" id="inputEmail" [(ngModel)]="email"  name="em"  class="form-control " placeholder="Email address" required="true" autofocus>
+              </div>
+
+
+              <label><b>Gender-:</b></label>
+              <div class="custom-control custom-radio mb-3 ">
+
+                <div>
+                  <input type="radio" name="gender"  class="custom-control-input" id="customradio1"  value="male" >
+                  <label class="custom-control-label" for="customradio1">Male</label>
+                </div>
+                <div>
+                  <input type="radio" name="gende"  class="custom-control-input" id="customradio2"  value="female" >
+                  <label class="custom-control-label" for="customradio2">Female</label>
+                </div>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputPassword"><b>Password-:</b></label>
+                <input type="password" id="inputPassword" [(ngModel)]="password"  name="pwd"  class="form-control" placeholder="Password" required="true">
+              </div>
+
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" (click)="signup()" >Sign Up</button>
+            </form>
+            <div class="text-center">
+              Already have an Account?
+            </div>
+            <div class="text-center">
+              <a routerLink="/sign_in" class="font-weight-bold">
+                <button class="btn-primary subtn">Login</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

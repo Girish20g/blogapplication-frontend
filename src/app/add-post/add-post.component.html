@@ -1,0 +1,43 @@
+<div class="add-post-content">
+  <div class="container">
+    <div>
+      <h3 class="new-post-title">Create New Post</h3>
+    </div>
+    <hr>
+    <form>
+      <div class="form-group">
+        <label class="post-title">Title</label>
+        <input type="text" [(ngModel)]="heading" name="title"  class="form-control" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label class="post-title">Category</label>
+        <input type="text" [(ngModel)]="category" name="cat"  class="form-control" placeholder="Category">
+      </div>
+      <div class="form-group">
+        <label class="post-title">Image-Src</label>
+        <input type="text" [(ngModel)]="imgsrc" name="img"  class="form-control" placeholder="Write Image Source">
+      </div>
+      <div class="form-group">
+        <label class="post-title">Keep-It</label><br>
+        <div class="custom-control custom-radio mb-3 ">
+
+          <div>
+            <input type="radio" name="gender" [(ngModel)]="status"  class="custom-control-input" id="customradio1"  value="private" >
+            <label class="custom-control-label" for="customradio1">Private</label>
+          </div>
+          <div>
+            <input type="radio" name="gender" [(ngModel)]="status"  class="custom-control-input" id="customradio2"  value="public" >
+            <label class="custom-control-label" for="customradio2">Public</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="post-content">Body</label>
+        <editor [(ngModel)]="content" name="body" [init]="{plugins: 'link'}"></editor>
+      </div>
+      <div class="form-group">
+        <button (click)="addBlog()" type="submit" class="btn btn-primary" routerLink="/home">Post</button>
+      </div>
+    </form >
+  </div>
+</div>

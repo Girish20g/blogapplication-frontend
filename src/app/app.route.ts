@@ -4,6 +4,7 @@ import {SignInComponent} from './sign-in/sign-in.component';
 import {HomeComponent} from './home/home.component';
 import {AddPostComponent} from './add-post/add-post.component';
 import {MyprofileComponent} from './myprofile/myprofile.component';
+import {BlogpageComponent} from './blogpage/blogpage.component';
 
 export const MAIN_ROUTES: Routes = [
   {
@@ -28,5 +29,9 @@ export const MAIN_ROUTES: Routes = [
   {
     path: 'myprofile',
     component: MyprofileComponent
+  },
+  {
+    path: 'home/:id',
+    component: BlogpageComponent
   }
 ];

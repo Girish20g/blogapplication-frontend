@@ -1,1 +1,42 @@
-<p>myprofile works!</p>
+<div class="row mx-0 mt-1">
+<div class="col-sm-3 p-2">
+  <div class="card p-3">
+    <div class="d-flex justify-content-center">
+      <!--img src="p1.png" width="100" height="100" class="rounded-circle img-thumbnail" alt="Image"-->
+      <i class="material-icons rounded-circle img-thumbnail" style="font-size:8rem">assignment_ind</i>
+    </div>
+    <h4 id="name" class="text-center" style="text-transform: uppercase">{{user.username}}</h4>
+    <div class="text-center">Blogger</div>
+    <hr/>
+    <div>
+      <div class="d-flex align-items-center mb-2">
+        <i class="material-icons pr-3">add_location</i>
+        <div><input style="width: 14rem" type="text" value="{{user.address}}" size="100" class="pl-2 p-1" [disabled]="disabled" [(ngModel)]="user.address"></div>
+      </div>
+      <div class="d-flex align-items-center mb-2">
+        <i class="material-icons pr-3">local_phone</i>
+        <div><input style="width: 14rem" type="number" value="{{user.phone}}" size="100" class="pl-2 p-1" [disabled]="disabled" [(ngModel)]="user.phone"></div>
+      </div>
+      <div class="d-flex align-items-center mb-2">
+        <i class="material-icons pr-3">mail_outline</i>
+        <div><input style="width: 14rem" type="email" value="{{user.email}}" size="100" class="pl-2 p-1" [disabled]="disabled" [(ngModel)]="user.email"></div>
+      </div>
+      <div class="d-flex align-items-center mb-2">
+        <i class="material-icons pr-3">link</i>
+        <div><a href="#">http://aciitk.ac.in//beehyv</a></div>
+      </div>
+      <div class="d-flex align-items-center mb-2">
+        <i class="material-icons pr-3">language</i>
+        <div>English</div>
+      </div>
+    </div>
+    <hr/>
+    <div class="d-flex justify-content-center">
+      <!--<i class="fa fa-twitter text-primary mr-2" style="font-size:2rem"></i>
+      <i class="material-icons text-warning" style="font-size:2rem">cloud</i>-->
+      <button class="btn btn-primary" (click)="toggle()">Edit</button>
+      <button class="btn btn-primary ml-5" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
+</div>

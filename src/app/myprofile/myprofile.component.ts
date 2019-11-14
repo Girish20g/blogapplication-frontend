@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {MyprofileService} from './myprofile.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-myprofile',
@@ -7,9 +11,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyprofileComponent implements OnInit {
 
-  constructor() { }
+  user;
+  disabled = true;
+  url = 'http://localhost:9999/users/update';
+  // tslint:disable-next-line:max-line-length
+  constructor(private myProfileService: MyprofileService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private app: AppService) { }
 
   ngOnInit() {
+    if (!this.app.checkLogin()) {
+      this.router.navigate(['/sign_in']);
+    }
+    this.myProfileService.getUsers().subscribe(data => {
+      this.user = data;
+      console.log(data);
+    });
+  }
+
+  toggle() {
+    this.disabled = false;
+  }
+
+  save() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    return this.http.put(this.url, this.user, {headers}).subscribe(data => {
+      console.log(data);
+      alert('Profile Updated Successfully');
+      this.router.navigate(['/myprofile']);
+      this.disabled = true;
+    });
   }
 
 }

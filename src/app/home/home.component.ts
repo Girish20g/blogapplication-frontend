@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onShow(blog) {
+    this.router.navigate(['/home', blog.id]);
+  }
+
   getWithCategory(cat) {
     this.c = cat;
     this.blogsService.getWithCat(cat).subscribe((data) => {

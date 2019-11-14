@@ -1,0 +1,54 @@
+<div class="container mt-2" style="background: aquamarine">
+  <div class="row">
+    <div class="col-sm-8">
+      <span class="text-muted font-weight-bolder" style="font-size: small;font-family: 'Apple Color Emoji'">{{blogdetail.category}} {{blogdetail.category}} {{blogdetail.category}}</span>
+      <h2 class="text-danger font-weight-bolder font-italic" style="font-family: 'Franklin Gothic Heavy'">{{blogdetail.title}}</h2>
+      <img src="./assets/images/avatar-1.jpg" class="rounded-circle" style="height: 40px">&nbsp;&nbsp;<span class="text-muted text-capitalize" style="font-size: smaller">{{blogdetail.username}}
+      &nbsp;&nbsp;| &nbsp;    <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px ">access_time</i> {{blogdetail.updatedOn | date:'short'}}
+      &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">remove_red_eye</i>  500
+      &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">mode_comment</i> 3 </span>
+      <p class="mt-4 ml-4" [innerHTML]="blogdetail.content"></p>
+      <img class="ml-4" src="{{blogdetail.imgsrc}}" width="100%">
+      <p class="ml-4 mt-4" [innerHTML]="blogdetail.content"></p>
+      <p class="ml-4 mt-4" [innerHTML]="blogdetail.content"></p>
+    </div>
+  </div>
+</div>
+<div class="post-comments bg-light p-2">
+  <header>
+    <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
+  </header>
+  <div class="comment">
+    <div class="comment-header d-flex justify-content-between">
+      <div class="user d-flex align-items-center">
+        <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
+        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
+      </div>
+    </div>
+    <div class="comment-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="comment-header d-flex justify-content-between">
+      <div class="user d-flex align-items-center">
+        <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
+        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
+      </div>
+    </div>
+    <div class="comment-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="comment-header d-flex justify-content-between">
+      <div class="user d-flex align-items-center">
+        <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
+        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
+      </div>
+    </div>
+    <div class="comment-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,8 @@ export class SignUpComponent implements OnInit {
   username;
   email;
   password;
+  address;
+  phone;
   url = 'http://localhost:9999/users/addUsers';
 
   ngOnInit() {
@@ -22,7 +24,9 @@ export class SignUpComponent implements OnInit {
     const ar = {
       username: this.username,
       password: this.password,
-      email: this.email
+      email: this.email,
+      address: this.address,
+      phone: this.phone
     };
     this.http.post(this.url, ar).subscribe(data => {
       alert('New User Added');

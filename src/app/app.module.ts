@@ -15,6 +15,7 @@ import {AuthenticationService} from './authentication.service';
 import {AppService} from './app.service';
 import {BlogsService} from './home/blogs.service';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { BlogpageComponent } from './blogpage/blogpage.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
     NavbarComponent,
     HomeComponent,
     AddPostComponent,
-    MyprofileComponent
+    MyprofileComponent,
+    BlogpageComponent
   ],
   imports: [
     BrowserModule,

@@ -25,19 +25,23 @@ export class AddPostComponent implements OnInit {
   }
 
   addBlog() {
-    const ar = {
-      title: this.heading,
-      category: this.category,
-      status: this.status,
-      content: this.content,
-      imgsrc: this.imgsrc
-    };
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
-    this.http.post(this.url, ar,{headers}).subscribe((data) => {
-      alert('Blog Added Successfully');
-      this.route.navigate(['/home']);
-    });
+    if (this.heading != null && this.category != null && this.status != null && this.content != null && this.imgsrc != null) {
+      const ar = {
+        title: this.heading,
+        category: this.category,
+        status: this.status,
+        content: this.content,
+        imgsrc: this.imgsrc
+      };
+      const token = sessionStorage.getItem('token');
+      const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+      this.http.post(this.url, ar, {headers}).subscribe((data) => {
+        alert('Blog Added Successfully');
+        this.route.navigate(['/home']);
+      });
+    } else {
+      alert('Fill All Fields');
+    }
   }
 
 }

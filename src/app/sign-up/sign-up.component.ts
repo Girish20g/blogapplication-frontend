@@ -36,10 +36,6 @@ export class SignUpComponent implements OnInit {
       address: this.address,
       phone: this.phone
     };
-    if (ar.phone.length !== 10) {
-      alert('Invalid Contact No.');
-      this.x = 1;
-    }
     for (let i = 0; i < this.prod.length; i++) {
       if (this.prod[i].username === ar.username) {
         alert('Invalid Please Fill Credentials');

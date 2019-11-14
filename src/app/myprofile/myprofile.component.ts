@@ -13,6 +13,7 @@ export class MyprofileComponent implements OnInit {
 
   user;
   disabled = true;
+  blogs;
   url = 'http://localhost:9999/users/update';
   // tslint:disable-next-line:max-line-length
   constructor(private myProfileService: MyprofileService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private app: AppService) { }
@@ -24,6 +25,9 @@ export class MyprofileComponent implements OnInit {
     this.myProfileService.getUsers().subscribe(data => {
       this.user = data;
       console.log(data);
+    });
+    this.myProfileService.getUsersBlog().subscribe((data) => {
+      this.blogs = data;
     });
   }
 
@@ -40,6 +44,13 @@ export class MyprofileComponent implements OnInit {
       this.router.navigate(['/myprofile']);
       this.disabled = true;
     });
+  }
+
+  delete(id) {
+    this.myProfileService.deleteUserBlog(id).subscribe( data => {
+      this.router.navigate(['/myprofile']);
+    });
+    this.ngOnInit();
   }
 
 }

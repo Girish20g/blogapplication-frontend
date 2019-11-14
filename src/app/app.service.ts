@@ -16,4 +16,11 @@ export class AppService {
     const auth = sessionStorage.getItem('auth');
     return JSON.parse(auth);
   }
+
+  getUsers() {
+    const token = sessionStorage.getItem('token');
+    // const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:9999/users/getUsers';
+    return this.httpClient.get(url);
+  }
 }

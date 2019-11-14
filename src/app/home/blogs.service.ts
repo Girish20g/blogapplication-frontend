@@ -21,4 +21,11 @@ export class BlogsService {
     const url = 'http://localhost:9999/api/category/' + cat;
     return this.http.get(url, {headers});
   }
+
+  getBySearch(str) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:9999/api/searchby/' + str;
+    return this.http.get(url, {headers});
+  }
 }

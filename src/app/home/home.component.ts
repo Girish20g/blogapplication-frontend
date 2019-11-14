@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   // tslint:disable-next-line:ban-types
   blogss: Object = [];
   c;
+  str;
 
   constructor(private blogsService: BlogsService, private router: Router, private route: ActivatedRoute, private app: AppService) { }
 
@@ -33,6 +34,12 @@ export class HomeComponent implements OnInit {
   getWithCategory(cat) {
     this.c = cat;
     this.blogsService.getWithCat(cat).subscribe((data) => {
+      this.blogss = data;
+    });
+  }
+
+  search() {
+    this.blogsService.getBySearch(this.str).subscribe((data) => {
       this.blogss = data;
     });
   }

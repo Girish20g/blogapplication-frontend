@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MyprofileService} from './myprofile.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {AppService} from '../app.service';
 
 @Component({
@@ -10,10 +10,10 @@ import {AppService} from '../app.service';
   styleUrls: ['./myprofile.component.scss']
 })
 export class MyprofileComponent implements OnInit {
-
   user;
   disabled = true;
   blogs;
+  folow;
   url = 'http://localhost:9999/users/update';
   // tslint:disable-next-line:max-line-length
   constructor(private myProfileService: MyprofileService, private router: Router, private route: ActivatedRoute, private http: HttpClient, private app: AppService) { }
@@ -28,6 +28,10 @@ export class MyprofileComponent implements OnInit {
     });
     this.myProfileService.getUsersBlog().subscribe((data) => {
       this.blogs = data;
+    });
+    this.myProfileService.getFollowers().subscribe( data => {
+      this.folow = data;
+      console.log(data);
     });
   }
 
@@ -45,12 +49,30 @@ export class MyprofileComponent implements OnInit {
       this.disabled = true;
     });
   }
-
   delete(id) {
-    this.myProfileService.deleteUserBlog(id).subscribe( data => {
-      this.router.navigate(['/myprofile']);
-    });
-    this.ngOnInit();
+    if (confirm('Click Ok To Delete!! else Click Cancel!!')) {
+      this.myProfileService.deleteUserBlog(id).subscribe(data => {
+        this.router.navigate(['/myprofile']);
+        this.ngOnInit();
+      });
+    }
   }
+
+  onSelect(blogs) {
+    this.router.navigate(['/myprofile', blogs.id]);
+  }
+
+  deleteFollower(id) {
+    if (confirm('Do You want to UNFOLLOW ???')) {
+      this.myProfileService.deleteFollowers(id).subscribe( data => {
+        console.log(data);
+        this.myProfileService.getFollowers().subscribe( data => {
+          this.folow = data;
+          console.log(data);
+        });
+      });
+    } else {}
+  }
+
 
 }

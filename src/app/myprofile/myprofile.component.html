@@ -39,11 +39,19 @@
     </div>
   </div>
 </div>
-  <div class="col-6 mt-2">
+  <div class="col-sm-6 mt-2">
+    <h2 class="h2">Blogs Written By You Will Be Shown Here</h2>
     <div *ngFor="let b of blogs" class="mb-3 p-3 bg-white rounded-lg" style="border: 1px solid black">
       <div class="pb-2 d-flex justify-content-between">
         <h2>{{b.title}}</h2>
-        <button class="btn btn-danger pt-0 pb-0" style="height: 50px" (click)="delete(b.id)">Delete</button>
+       <!-- <button class="btn btn-danger pt-0 pb-0" style="height: 50px" (click)="delete(b.id)">Delete</button>-->
+        <div class="dropdown">
+          <button class="dropbtn"><i class="material-icons">menu</i> </button>
+          <div class="dropdown-content">
+            <a (click)="delete(b.id)">Delete</a>
+            <a (click)="onSelect(b)">Edit</a>
+          </div>
+        </div>
       </div>
       <div class="d-flex mb-3 text-muted">
         <i class="material-icons">date_range</i>{{b.updatedOn | date : 'short'}} &nbsp; &nbsp; &nbsp;
@@ -51,9 +59,16 @@
       </div>
       <div [innerHTML]="b.content">
       </div>
-      <button class="btn btn-outline-primary mt-4">
-        Edit
-      </button>
+    </div>
+  </div>
+  <div class="col-sm-3 mt-2" >
+    <h5 class="h5">Bloggers You Followed Will Be Shown Below-:</h5>
+    <div *ngFor="let a of folow">
+      <div style="border: 1px solid black;border-radius: 8px;margin-top: 8px">
+      <div class="ml-1 mb-1 text-capitalize">blogger-: {{a.users1.username}}</div>
+        <div class="ml-1 mb-1"><span class="text-capitalize">email-:</span> {{a.users1.email}}</div>
+      <div class="ml-5 mb-3 mt-2"><button class="btn btn-outline-primary ml-4" (click)="deleteFollower(a.users1.id)">Unfollow</button></div>
+      </div>
     </div>
   </div>
 </div>

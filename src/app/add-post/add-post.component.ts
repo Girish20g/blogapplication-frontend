@@ -10,11 +10,13 @@ import {AppService} from '../app.service';
 })
 export class AddPostComponent implements OnInit {
 
+  prods;
   heading;
   category;
   imgsrc;
   status;
   content;
+  id;
   url = 'http://localhost:9999/api/addBlog';
   constructor(private http: HttpClient, private route: Router, private serve: AppService, private r: ActivatedRoute) { }
 
@@ -43,5 +45,6 @@ export class AddPostComponent implements OnInit {
       alert('Fill All Fields');
     }
   }
+
 
 }

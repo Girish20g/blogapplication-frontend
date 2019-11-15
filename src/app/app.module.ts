@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +16,7 @@ import {AppService} from './app.service';
 import {BlogsService} from './home/blogs.service';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { BlogpageComponent } from './blogpage/blogpage.component';
+import { EditBlogComponent } from './edit-blog/edit-blog.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { BlogpageComponent } from './blogpage/blogpage.component';
     HomeComponent,
     AddPostComponent,
     MyprofileComponent,
-    BlogpageComponent
+    BlogpageComponent,
+    EditBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { BlogpageComponent } from './blogpage/blogpage.component';
     HttpClientModule,
     FormsModule,
     EditorModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthenticationService,

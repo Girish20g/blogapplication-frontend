@@ -27,4 +27,18 @@ export class MyprofileService {
     const url = 'http://localhost:9999/api/deleteBlog/' + id;
     return this.http.get(url, {headers});
   }
+
+  getFollowers() {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:9999/follow/followers';
+    return this.http.get(url, {headers});
+  }
+
+  deleteFollowers(id) {
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({Authorization: 'Basic ' + token});
+    const url = 'http://localhost:9999/follow/delete/UserId/' + id;
+    return this.http.get(url, {headers});
+  }
 }

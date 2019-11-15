@@ -6,11 +6,13 @@
       <img src="./assets/images/avatar-1.jpg" class="rounded-circle" style="height: 40px">&nbsp;&nbsp;<span class="text-muted text-capitalize" style="font-size: smaller">{{blogdetail.username}}
       &nbsp;&nbsp;| &nbsp;    <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px ">access_time</i> {{blogdetail.updatedOn | date:'short'}}
       &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">remove_red_eye</i>  500
-      &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">mode_comment</i> 3 </span>
+      &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">mode_comment</i> 3
+    &nbsp;&nbsp;| &nbsp; <i class="material-icons" style="vertical-align: text-bottom;font-size: 20px">thumb_up_alt</i></span>
       <p class="mt-4 ml-4" [innerHTML]="blogdetail.content"></p>
       <img class="ml-4" src="{{blogdetail.imgsrc}}" width="100%">
       <p class="ml-4 mt-4" [innerHTML]="blogdetail.content"></p>
       <p class="ml-4 mt-4" [innerHTML]="blogdetail.content"></p>
+      <button *ngIf="user.id !== blogdetail.user.id" class="mb-2 ml-3 fol" (click)="following(blogdetail.user.id)">Follow</button>
     </div>
   </div>
 </div>
@@ -22,7 +24,7 @@
     <div class="comment-header d-flex justify-content-between">
       <div class="user d-flex align-items-center">
         <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
-        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
+        <div class="title"><strong>Jabi Hernandiz</strong><span class="date">{{blogdetail.updatedOn | date:'short'}}</span></div>
       </div>
     </div>
     <div class="comment-body">
@@ -33,7 +35,7 @@
     <div class="comment-header d-flex justify-content-between">
       <div class="user d-flex align-items-center">
         <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
-        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
+        <div class="title"><strong>Nikolas</strong><span class="date">{{blogdetail.updatedOn | date:'short'}}</span></div>
       </div>
     </div>
     <div class="comment-body">
@@ -44,7 +46,7 @@
     <div class="comment-header d-flex justify-content-between">
       <div class="user d-flex align-items-center">
         <div class="image"><img src="https://static.thenounproject.com/png/15724-200.png" alt="..." class="img-fluid rounded-circle"></div>
-        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
+        <div class="title"><strong>John Doe</strong><span class="date">{{blogdetail.updatedOn | date:'short'}}</span></div>
       </div>
     </div>
     <div class="comment-body">

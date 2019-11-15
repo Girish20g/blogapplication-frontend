@@ -14,6 +14,7 @@ export class SignUpComponent implements OnInit {
   username;
   email;
   password;
+  cpassword;
   address;
   phone;
   x;
@@ -38,7 +39,7 @@ export class SignUpComponent implements OnInit {
     };
     for (let i = 0; i < this.prod.length; i++) {
       if (this.prod[i].username === ar.username) {
-        alert('Invalid Please Fill Credentials');
+        alert('Username Already Exist');
         this.x = 1;
         break;
       }
@@ -53,11 +54,14 @@ export class SignUpComponent implements OnInit {
         break;
       }
     }
-    if (this.x === 0) {
+    if (this.x === 0 && this.password === this.cpassword) {
       this.http.post(this.url, ar).subscribe(data => {
         alert('New User Added');
         this.router.navigate(['/sign_in']);
       });
+    }
+    else {
+      alert('password does not match');
     }
   }
 

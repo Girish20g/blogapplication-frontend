@@ -57,3 +57,14 @@
   font-size: 0.95em;
   color: #555;
 }
+.fol {
+  background: white;
+  color: black;
+  border-radius: 10px;
+  padding: 5px;
+}
+.fol:hover {
+  transform: scale(1.1);
+  border:1px solid black;
+  box-shadow: #0e1da2;
+}
